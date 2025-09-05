@@ -1,0 +1,26 @@
+
+@tailwind base; @tailwind components; @tailwind utilities;
+:root { color-scheme: dark; }
+.card { @apply rounded-2xl border border-slate-700 bg-slate-900/60 shadow-lg; }
+.btn { @apply px-4 py-2 rounded-xl border border-slate-600 hover:bg-slate-800 active:scale-[0.98]; }
+.btn-primary { @apply bg-indigo-600 border-indigo-500 hover:bg-indigo-500; }
+.btn-danger { @apply bg-rose-600 border-rose-500 hover:bg-rose-500; }
+.btn-icon { @apply p-2 rounded-lg border border-slate-600 hover:bg-slate-800; }
+.pill { @apply inline-flex items-center justify-center gap-2 px-3 py-1 rounded-full border border-slate-600 bg-slate-800 text-xs min-w-[36px]; }
+.toast { @apply fixed left-1/2 -translate-x-1/2 top-4 px-4 py-2 rounded-lg bg-rose-600 text-white shadow; }
+.playing-card { @apply rounded-xl border border-slate-700 bg-slate-950; width: 76px; height: 110px; display:flex; align-items:center; justify-content:center; padding:10px; overflow:hidden; }
+.playing-card.big { width: 92px; height: 134px; }
+.card-img { width:100%; height:100%; object-fit:contain; }
+.card-back { @apply w-full h-full rounded-md; background: repeating-linear-gradient(45deg,#0f172a 0,#0f172a 6px,#1f2937 6px,#1f2937 12px); position:relative; }
+.card-back::after { content:"♠"; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); font-size:28px; color:#94a3b8; opacity:.6; }
+.turn-active { box-shadow: 0 0 0 2px rgba(129,140,248,.9), 0 0 24px rgba(129,140,248,.35); }
+.chip { @apply rounded-full border border-slate-500 bg-slate-800 shadow px-4 py-3 text-sm font-semibold flex items-center gap-2; }
+.heart { color:#f87171; }
+.stakes-badge { @apply chip; }
+.stakes-badge.bump { animation: burst .35s ease-out; }
+.sidebar { @apply card p-3 flex flex-col h-[460px]; }
+.feed { @apply text-sm flex-1 overflow-y-auto space-y-1 pr-1; }
+.feed .sys { @apply text-slate-400 text-xs; }
+.feed .chat { @apply text-slate-100; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+.highlight { box-shadow: 0 0 0 2px rgba(129,140,248,.9) inset; border-radius: 12px; }
