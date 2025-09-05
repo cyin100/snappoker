@@ -1,9 +1,8 @@
 
-# Snap Poker (MVP v5e)
-- Not-found lobby page uses curly apostrophe and centers panel with **Back to Home** button.
-- Guest nickname + ready: UI now ensures join before nickname/ready writes, so guest updates apply and ready counts.
-- `poker.ts` converted to semicolon style to silence missing-semicolon lints.
+# Snap Poker
+This is the source code for Snap Poker hosted at https://snap-poker.vercel.app. 
 
-## Run
-npm i
-npm run dev
+## Running Locally
+- `npm i`
+- `npm run dev`
+- Hosted on https://localhost:5137
