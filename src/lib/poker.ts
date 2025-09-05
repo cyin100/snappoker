@@ -75,10 +75,14 @@ function countRanks(hand: Card[]): Record<number,number> { const m:Record<number
 function ofAKind(counts:Record<number,number>, n:number, exclude?:number):number|null { for(let r=14;r>=2;r--){ if(r===exclude) continue; if((counts[r]??0)===n) return r; } return null; }
 function pairsDescending(counts:Record<number,number>):number[]{ const arr:number[]=[]; for(let r=14;r>=2;r--) if((counts[r]??0)===2) arr.push(r); return arr; }
 function flushSuit(hand:Card[]):string|null{ const counts:Record<string,number>={}; for(const c of hand) counts[c.s]=(counts[c.s]??0)+1; for(const s of Object.keys(counts)) if(counts[s]>=5) return s; return null; }
-function straightHighCard(hand:Card[]):number|null{
-  const ranksSet=new Set(hand.map(c=>c.r));
-  for(let hi=14;hi>=5;hi--){ const seq=[hi,hi-1,hi-2,hi-3,hi-4]; if(seq.every(r=>ranksSet.has(r))) return hi; }
-  if(ranksSet.has(14)&&ranksSet.has(5)&&ranksSet.has(4)&&ranksSet.has(3)&&ranksSet.has(2)) return 5;
+function straightHighCard(hand: Card[]): number | null {
+  const ranksSet = new Set<Card['r']>(hand.map(c => c.r));
+  const hasRank = (n: number) => ranksSet.has(n as Card['r']);
+  for (let hi = 14; hi >= 5; hi--) {
+    const seq = [hi, hi - 1, hi - 2, hi - 3, hi - 4];
+    if (seq.every(hasRank)) return hi;
+  }
+  if (hasRank(14) && hasRank(5) && hasRank(4) && hasRank(3) && hasRank(2)) return 5;
   return null;
 }
 
